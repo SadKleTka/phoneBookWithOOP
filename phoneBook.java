@@ -99,18 +99,27 @@ public class phoneBook {
                     System.exit(0);
 
                 if (findByNumber.toString().matches("\\+996\\d{9}")) {
-                    boolean found = false;
                     for (phoneBookName name : phoneBook.keySet()) {
                         if (phoneBook.get(name).equals(findByNumber)) {
                             System.out.println("=================================================================================================");
                             System.out.println("Founded contact:\nName: " + name + "\nNumber: " + findByNumber);
                             System.out.println("=================================================================================================");
-                            found = true;
                         }
                     }
-                    if (!found) {
-                        System.out.println("‼️No contact found with that number‼️");
-                    }
+                        if (!phoneBook.containsValue(findByNumber)) {
+                            System.out.println("‼️No contact found with that number‼️");
+                            System.out.println(enterTwoOptions());
+                            String enter = scan.nextLine();
+                            if (enter.equalsIgnoreCase("back")) {
+                                break;
+                            }
+                            else if (enter.isEmpty()) {
+                                    continue;
+                                } else {
+                                    System.out.println("‼️There are no commands like that‼️");
+                                    continue;
+                                }
+                            }
                 } else {
                     System.out.println("❌ Wrong format. Try again.");
                 }

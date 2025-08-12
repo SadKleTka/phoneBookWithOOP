@@ -20,8 +20,6 @@ public class phoneBook {
             System.out.println("If you want to remove some contacts write: \"remove\" ❌");
             System.out.println("If you want to exit from a phoneBook, please write: \"exit\" \uD83D\uDED1");
             String mainmenu = scan.nextLine();
-            Set<String> setOfCommands = Set.of("find", "add", "list", "exit", "remove", "edit");
-            if (setOfCommands.contains(mainmenu)) {
                 switch (mainmenu) {
                     case "find":
                         findContact(phoneBook, scan);
@@ -45,17 +43,15 @@ public class phoneBook {
                         editContacts(phoneBook, scan);
                         break;
 
-
-
                     case "exit":
                         System.exit(0);
                         break;
+
+                    default:
+                        System.out.println("\uD83D\uDED1Invalid action\uD83D\uDED1");
+                        break;
                 }
-            }
-            else {
-                System.out.println("There are no commands like that. Please press \"ENTER\" to return to Main menu");
-                scan.nextLine();
-            }
+
         }
 
 
